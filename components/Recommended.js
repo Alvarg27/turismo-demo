@@ -75,12 +75,12 @@ const Recommended = () => {
   };
 
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col w-full">
       <p className="font-medium">Recomendado</p>
       <div
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
-        className="relative h-[520px] max-w-full"
+        className="relative h-[520px] w-full"
       >
         {recommendations.map((r, i) => (
           <Transition
