@@ -80,7 +80,7 @@ const Recommended = () => {
       <div
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
-        className="relative h-[420px] w-full px-4"
+        className="relative h-[420px] w-full"
       >
         {recommendations.map((r, i) => (
           <Transition
