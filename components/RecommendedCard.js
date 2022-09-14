@@ -6,21 +6,28 @@ import experimental from "../public/experimental.webp";
 
 const RecommendedCard = ({ show }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   useEffect(() => {
     if (!show) {
+      return;
+    }
+    if (!imageLoaded) {
       return;
     }
     setTimeout(() => {
       setIsLoaded(true);
     }, 300);
-  }, [show]);
+  }, [show, imageLoaded]);
+
   return (
-    <div className="absolute shadow-lg w-full h-[500px] rounded-xl overflow-hidden">
+    <div className="absolute shadow-lg w-full h-[500px] rounded-xl overflow-hidden bg-gray-200">
       <Image
         layout="fill"
         className="rounded-xl"
         objectFit="cover"
         src={experimental}
+        onLoad={() => setImageLoaded(true)}
       />
       <div
         className={`absolute top-2 right-2 text-white bg-rose-400 h-[40px] w-[40px] flex rounded-full shadow-md transition duration-300 delay-300 ${
