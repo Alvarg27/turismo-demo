@@ -92,7 +92,7 @@ const Recommended = () => {
             }translate-x-full`}
             enterTo="opacity-100 translate-x-0"
             leave="transition-all duration-500"
-            leaveFrom="opacity-100"
+            leaveFrom="opacity-100  translate-x-0"
             leaveTo={`opacity-0 ${
               swipe === "right" ? "-" : ""
             }translate-x-full`}
