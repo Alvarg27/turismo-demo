@@ -19,7 +19,7 @@ const RecommendedCard = ({ show, recommendation }) => {
   }, [show, imageLoaded]);
 
   return (
-    <div className="shadow-xl w-full h-[500px] rounded-xl my-4 absolute">
+    <div className="shadow-xl w-full h-[400px] rounded-xl my-4 absolute">
       <Image
         layout="fill"
         objectFit="cover"

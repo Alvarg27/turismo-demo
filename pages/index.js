@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="">
       <Banner />
-      <div className="px-4">
+      <div className="px-8">
         <Recommended />
       </div>
     </div>
