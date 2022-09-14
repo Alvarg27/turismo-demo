@@ -80,18 +80,18 @@ const Recommended = () => {
       <div
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
-        className="relative h-[420px] w-full"
+        className="relative h-[420px] w-full px-4"
       >
         {recommendations.map((r, i) => (
           <Transition
             key={r._id}
             show={isShowing === i + 1}
-            enter="transition-all duration-500"
+            enter="transition-all duration-1000"
             enterFrom={`opacity-0 ${
               swipe === "right" ? "" : "-"
             }translate-x-full`}
             enterTo="opacity-100 translate-x-0"
-            leave="transition-all duration-500"
+            leave="transition-all duration-1000"
             leaveFrom="opacity-100  translate-x-0"
             leaveTo={`opacity-0 ${
               swipe === "right" ? "-" : ""

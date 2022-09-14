@@ -19,15 +19,17 @@ const RecommendedCard = ({ show, recommendation }) => {
   }, [show, imageLoaded]);
 
   return (
-    <div className="shadow-xl w-full h-[400px] rounded-xl my-4 absolute">
-      <Image
-        layout="fill"
-        objectFit="cover"
-        className="rounded-xl bg-gray-800"
-        priority="true"
-        src={recommendation.image}
-        onLoad={() => setImageLoaded(true)}
-      />
+    <div className="shadow-xl w-full  h-[400px] rounded-xl my-4 absolute z-[40]">
+      <div className=" h-full">
+        <Image
+          layout="fill"
+          objectFit="cover"
+          className="rounded-xl bg-gray-800"
+          priority="true"
+          src={recommendation.image}
+          onLoad={() => setImageLoaded(true)}
+        />
+      </div>
       <div
         className={`absolute top-2 right-2 text-white bg-rose-400 h-[40px] w-[40px] flex rounded-full shadow-md transition duration-300 delay-300 ${
           isLoaded ? "opacity-100 translate-x-0" : "translate-x-full opacity-0"
