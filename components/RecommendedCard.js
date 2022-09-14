@@ -20,11 +20,12 @@ const RecommendedCard = ({ show, recommendation }) => {
 
   return (
     <div className="shadow-xl w-full  h-[400px] rounded-xl my-4 absolute z-[40]">
-      <div className=" h-full">
+      <div className="absolute rounded-xl w-full h-full  bg-gray-700 z-0 animate-pulse" />
+      <div className="h-full">
         <Image
           layout="fill"
           objectFit="cover"
-          className="rounded-xl bg-gray-700"
+          className="rounded-xl relative"
           priority="true"
           src={recommendation.image}
           onLoad={() => setImageLoaded(true)}
