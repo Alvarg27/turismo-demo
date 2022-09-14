@@ -2,9 +2,8 @@ import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { FaHeart, FaLocationArrow } from "react-icons/fa";
-import experimental from "../public/experimental.webp";
 
-const RecommendedCard = ({ show }) => {
+const RecommendedCard = ({ show, recommendation }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -26,7 +25,7 @@ const RecommendedCard = ({ show }) => {
         layout="fill"
         objectFit="cover"
         className="rounded-xl bg-gray-100"
-        src={experimental}
+        src={recommendation.image}
         onLoad={() => setImageLoaded(true)}
       />
       <div
@@ -50,7 +49,7 @@ const RecommendedCard = ({ show }) => {
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
         >
-          <p className="text-white text-2xl ">Festival experimental</p>
+          <p className="text-white text-2xl ">{recommendation.title}</p>
           <div className="flex text-white">
             <FaLocationArrow className="my-auto mr-2" />
             <p className="my-auto font-medium">3 km</p>

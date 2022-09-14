@@ -1,6 +1,27 @@
 import { Transition } from "@headlessui/react";
 import React, { useEffect, useState } from "react";
 import RecommendedCard from "./RecommendedCard";
+import experimental from "../public/experimental.webp";
+import zenea from "../public/zenea.webp";
+import patrio from "../public/patrio.webp";
+
+const recommendations = [
+  {
+    _id: "01",
+    title: "Festival Experimntal",
+    image: experimental,
+  },
+  {
+    _id: "02",
+    title: "Mes patrio",
+    image: patrio,
+  },
+  {
+    _id: "03",
+    title: "Conoce el Jardín Zenea",
+    image: zenea,
+  },
+];
 
 const Recommended = () => {
   const [isShowing, setIsShowing] = useState(1);
@@ -59,48 +80,26 @@ const Recommended = () => {
       <div
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
-        className="relative h-[550px] max-w-full"
+        className="relative h-[520px] max-w-full"
       >
-        <Transition
-          show={isShowing === 1}
-          enter="transition-all duration-500"
-          enterFrom={`opacity-0 ${
-            swipe === "right" ? "" : "-"
-          }translate-x-full`}
-          enterTo="opacity-100 translate-x-0"
-          leave="transition-all duration-500"
-          leaveFrom="opacity-100"
-          leaveTo={`opacity-0 ${swipe === "right" ? "-" : ""}translate-x-full`}
-        >
-          <RecommendedCard show={isShowing === 1} />
-        </Transition>
-
-        <Transition
-          show={isShowing === 2}
-          enter="transition-all duration-500"
-          enterFrom={`opacity-0 ${
-            swipe === "right" ? "" : "-"
-          }translate-x-full`}
-          enterTo="opacity-100 translate-x-0"
-          leave="transition-all duration-500"
-          leaveFrom="opacity-100"
-          leaveTo={`opacity-0 ${swipe === "right" ? "-" : ""}translate-x-full`}
-        >
-          <RecommendedCard show={isShowing === 2} />
-        </Transition>
-        <Transition
-          show={isShowing === 3}
-          enter="transition-all duration-500"
-          enterFrom={`opacity-0 ${
-            swipe === "right" ? "" : "-"
-          }translate-x-full`}
-          enterTo="opacity-100 translate-x-0"
-          leave="transition-all duration-500"
-          leaveFrom="opacity-100"
-          leaveTo={`opacity-0 ${swipe === "right" ? "-" : ""}translate-x-full`}
-        >
-          <RecommendedCard show={isShowing === 3} />
-        </Transition>
+        {recommendations.map((r, i) => (
+          <Transition
+            key={r._id}
+            show={isShowing === i + 1}
+            enter="transition-all duration-500"
+            enterFrom={`opacity-0 ${
+              swipe === "right" ? "" : "-"
+            }translate-x-full`}
+            enterTo="opacity-100 translate-x-0"
+            leave="transition-all duration-500"
+            leaveFrom="opacity-100"
+            leaveTo={`opacity-0 ${
+              swipe === "right" ? "-" : ""
+            }translate-x-full`}
+          >
+            <RecommendedCard show={isShowing === i + 1} recommendation={r} />
+          </Transition>
+        ))}
       </div>
       <div className="flex my-4 mx-auto">
         <span
