@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import { FaPlane } from "react-icons/fa";
-import image from "../public/turismo.webp";
 import SearchBar from "./SearchBar";
 
 const Banner = () => {
