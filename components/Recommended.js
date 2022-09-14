@@ -86,12 +86,12 @@ const Recommended = () => {
           <Transition
             key={r._id}
             show={isShowing === i + 1}
-            enter="transition-all duration-1000"
+            enter="transition-all duration-500"
             enterFrom={`opacity-0 ${
               swipe === "right" ? "" : "-"
             }translate-x-full`}
             enterTo="opacity-100 translate-x-0"
-            leave="transition-all duration-1000"
+            leave="transition-all duration-500"
             leaveFrom="opacity-100  translate-x-0"
             leaveTo={`opacity-0 ${
               swipe === "right" ? "-" : ""
