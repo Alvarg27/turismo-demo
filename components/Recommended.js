@@ -5,6 +5,7 @@ import RecommendedCard from "./RecommendedCard";
 const Recommended = () => {
   const [isShowing, setIsShowing] = useState(1);
   const [touchPosition, setTouchPosition] = useState(null);
+  const [swipe, setSwipe] = useState();
 
   const next = () => {
     if (isShowing < 3) {
@@ -13,6 +14,7 @@ const Recommended = () => {
     if (isShowing >= 3) {
       setIsShowing(1);
     }
+    setSwipe("right");
   };
 
   const prev = () => {
@@ -22,6 +24,7 @@ const Recommended = () => {
     if (isShowing <= 1) {
       setIsShowing(3);
     }
+    setSwipe("left");
   };
   // ...
   const handleTouchStart = (e) => {
@@ -58,27 +61,43 @@ const Recommended = () => {
         onTouchMove={(e) => handleTouchMove(e)}
         className="relative h-[550px] max-w-full"
       >
-        <RecommendedCard show={isShowing === 1} />
+        <Transition
+          show={isShowing === 1}
+          enter="transition-all duration-500"
+          enterFrom={`opacity-0 ${
+            swipe === "right" ? "" : "-"
+          }translate-x-full`}
+          enterTo="opacity-100 translate-x-0"
+          leave="transition-all duration-500"
+          leaveFrom="opacity-100"
+          leaveTo={`opacity-0 ${swipe === "right" ? "-" : ""}translate-x-full`}
+        >
+          <RecommendedCard show={isShowing === 1} />
+        </Transition>
 
         <Transition
           show={isShowing === 2}
           enter="transition-all duration-500"
-          enterFrom="opacity-0 translate-x-full "
+          enterFrom={`opacity-0 ${
+            swipe === "right" ? "" : "-"
+          }translate-x-full`}
           enterTo="opacity-100 translate-x-0"
           leave="transition-all duration-500"
           leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          leaveTo={`opacity-0 ${swipe === "right" ? "-" : ""}translate-x-full`}
         >
           <RecommendedCard show={isShowing === 2} />
         </Transition>
         <Transition
           show={isShowing === 3}
           enter="transition-all duration-500"
-          enterFrom="opacity-0 translate-x-full"
+          enterFrom={`opacity-0 ${
+            swipe === "right" ? "" : "-"
+          }translate-x-full`}
           enterTo="opacity-100 translate-x-0"
           leave="transition-all duration-500"
           leaveFrom="opacity-100"
-          leaveTo="opacity-0"
+          leaveTo={`opacity-0 ${swipe === "right" ? "-" : ""}translate-x-full`}
         >
           <RecommendedCard show={isShowing === 3} />
         </Transition>
