@@ -14,9 +14,8 @@ const RecommendedCard = ({ show, recommendation }) => {
     if (!imageLoaded) {
       return;
     }
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 300);
+
+    setIsLoaded(true);
   }, [show, imageLoaded]);
 
   return (
