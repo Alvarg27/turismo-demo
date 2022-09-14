@@ -103,16 +103,19 @@ const Recommended = () => {
       </div>
       <div className="flex my-4 mx-auto">
         <span
+          onClick={() => setIsShowing(1)}
           className={`bg-indigo-700 h-2 w-2 rounded-full mx-4 transition duration-300 ${
             isShowing === 1 ? "bg-indigo-700" : "bg-gray-300"
           }`}
         />
         <span
+          onClick={() => setIsShowing(2)}
           className={`bg-indigo-700 h-2 w-2 rounded-full mx-4 transition duration-300 ${
             isShowing === 2 ? "bg-indigo-700" : "bg-gray-300"
           }`}
         />
         <span
+          onClick={() => setIsShowing(3)}
           className={`bg-indigo-700 h-2 w-2 rounded-full mx-4 transition duration-300 ${
             isShowing === 3 ? "bg-indigo-700" : "bg-gray-300"
           }`}
