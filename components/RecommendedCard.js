@@ -25,7 +25,7 @@ const RecommendedCard = ({ show }) => {
       <Image
         layout="fill"
         objectFit="cover"
-        className="rounded-xl"
+        className="rounded-xl bg-gray-100"
         src={experimental}
         onLoad={() => setImageLoaded(true)}
       />
