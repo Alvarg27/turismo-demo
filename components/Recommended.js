@@ -4,33 +4,66 @@ import RecommendedCard from "./RecommendedCard";
 
 const Recommended = () => {
   const [isShowing, setIsShowing] = useState(1);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsShowing(2);
-      setTimeout(() => {
-        setIsShowing(3);
-      }, 3000);
-    }, 3000);
-  }, []);
+  const [touchPosition, setTouchPosition] = useState(null);
+
+  const next = () => {
+    if (isShowing < 3) {
+      setIsShowing((prev) => prev + 1);
+    }
+    if (isShowing >= 3) {
+      setIsShowing(1);
+    }
+  };
+
+  const prev = () => {
+    if (isShowing > 1) {
+      setIsShowing((prev) => prev - 1);
+    }
+    if (isShowing <= 1) {
+      setIsShowing(3);
+    }
+  };
+  // ...
+  const handleTouchStart = (e) => {
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+
+  const handleTouchMove = (e) => {
+    const touchDown = touchPosition;
+
+    if (touchDown === null) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
+
+    if (diff > 5) {
+      next();
+    }
+
+    if (diff < -5) {
+      prev();
+    }
+
+    setTouchPosition(null);
+  };
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <p className="font-medium">Recomendado</p>
-      <div className="mt-4 relative h-[500px] overflow-hidden">
-        <Transition
-          show={isShowing === 1}
-          enter="transition-all duration-500"
-          enterFrom="opacity-0 translate-x-full"
-          enterTo="opacity-100 translate-x-0"
-          leave="transition-all duration-500"
-          leaveFrom="opacity-100 translate-x-0"
-          leaveTo="opacity-0 -translate-x-full"
-        >
-          <RecommendedCard show={isShowing === 1} />
-        </Transition>
+      <div
+        onTouchStart={(e) => handleTouchStart(e)}
+        onTouchMove={(e) => handleTouchMove(e)}
+        className="relative h-[550px] max-w-full"
+      >
+        <RecommendedCard show={isShowing === 1} />
+
         <Transition
           show={isShowing === 2}
           enter="transition-all duration-500"
-          enterFrom="opacity-0 translate-x-full"
+          enterFrom="opacity-0 translate-x-full "
           enterTo="opacity-100 translate-x-0"
           leave="transition-all duration-500"
           leaveFrom="opacity-100"
