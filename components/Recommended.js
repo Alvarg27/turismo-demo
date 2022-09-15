@@ -89,14 +89,14 @@ const Recommended = () => {
           <Transition
             show={slide === i + 1}
             key={r._id}
-            enter="transition-all duration-1000"
-            enterFrom={`opacity-25 ${
+            enter="transition-all duration-1000 ease-in-out	"
+            enterFrom={`opacity-100 ${
               swipe === "right" ? "" : "-"
             }translate-x-full`}
             enterTo="opacity-100 translate-x-0"
-            leave="transition-all duration-1000"
+            leave="transition-all duration-1000 ease-in-out	"
             leaveFrom="opacity-100  translate-x-0"
-            leaveTo={`opacity-25 ${
+            leaveTo={`opacity-100 ${
               swipe === "right" ? "-" : ""
             }translate-x-full`}
           >
