@@ -12,6 +12,7 @@ const RecommendedCard = ({ show, recommendation }) => {
       <div className="rounded-xl bg-gray-700 relative h-[400px] ">
         <Image
           layout="fill"
+          objectFit="cover"
           className="rounded-xl"
           src={recommendation.image}
           priority={true}
