@@ -1,5 +1,5 @@
 import { Transition } from "@headlessui/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import experimental from "../public/experimental.webp";
 import zenea from "../public/zenea.webp";
 import patrio from "../public/patrio.webp";
@@ -29,26 +29,23 @@ const recommendations = [
 const Recommended = () => {
   const [slide, setSlide] = useState(1);
   const [touchPosition, setTouchPosition] = useState(null);
-  const [swipe, setSwipe] = useState();
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const ref = useRef();
 
   const next = () => {
-    if (slide < 3) {
-      setSlide((prev) => prev + 1);
-    }
-    if (slide >= 3) {
-      setSlide(1);
-    }
-    setSwipe("right");
+    ref.current.scrollTo({
+      left: scrollPosition + ref.current.clientWidth,
+      behavior: "smooth",
+    });
+    setScrollPosition(scrollPosition + ref.current.clientWidth);
   };
 
   const prev = () => {
-    if (slide > 1) {
-      setSlide((prev) => prev - 1);
-    }
-    if (slide <= 1) {
-      setSlide(3);
-    }
-    setSwipe("left");
+    ref.current.scrollTo({
+      left: scrollPosition - ref.current.clientWidth,
+      behavior: "smooth",
+    });
+    setScrollPosition(scrollPosition - ref.current.clientWidth);
   };
   // ...
   const handleTouchStart = (e) => {
@@ -81,27 +78,13 @@ const Recommended = () => {
     <div className="flex flex-col w-full ">
       <p className="font-medium text-white">Recomendado</p>
       <div
+        ref={ref}
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
-        className="relative w-full h-[400px] overflow-x-hidden  my-4"
+        className="relative h-[400px] flex overflow-x-hidden my-4"
       >
         {recommendations.map((r, i) => (
-          <Transition
-            show={slide === i + 1}
-            key={r._id}
-            enter="transition-all duration-1000 ease-in-out	"
-            enterFrom={`opacity-100 ${
-              swipe === "right" ? "" : "-"
-            }translate-x-full`}
-            enterTo="opacity-100 translate-x-0"
-            leave="transition-all duration-1000 ease-in-out	"
-            leaveFrom="opacity-100  translate-x-0"
-            leaveTo={`opacity-100 ${
-              swipe === "right" ? "-" : ""
-            }translate-x-full`}
-          >
-            <RecommendedCard recommendation={r} />
-          </Transition>
+          <RecommendedCard recommendation={r} />
         ))}
       </div>
     </div>
