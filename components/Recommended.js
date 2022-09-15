@@ -81,7 +81,7 @@ const Recommended = () => {
         ref={ref}
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
-        className="relative h-[400px] flex overflow-x-hidden my-4"
+        className="relative h-[400px] flex overflow-x-scroll my-4 no-scrollbar"
       >
         {recommendations.map((r, i) => (
           <RecommendedCard key={r._id} recommendation={r} />
