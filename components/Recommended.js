@@ -84,7 +84,7 @@ const Recommended = () => {
         className="relative h-[400px] flex overflow-x-hidden my-4"
       >
         {recommendations.map((r, i) => (
-          <RecommendedCard recommendation={r} />
+          <RecommendedCard key={r._id} recommendation={r} />
         ))}
       </div>
     </div>
