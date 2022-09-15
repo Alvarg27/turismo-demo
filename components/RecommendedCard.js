@@ -12,8 +12,6 @@ const RecommendedCard = ({ show, recommendation }) => {
     setIsLoaded(true);
   }, []);
 
-  console.log(imageLoaded);
-
   const handleImageLoad = () => {
     setImageLoaded(true);
   };
