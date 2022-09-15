@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 export default function Home() {
   return (
     <>
-      <div className="px-4">
+      <div className="px-8">
         <Recommended />
       </div>
     </>
