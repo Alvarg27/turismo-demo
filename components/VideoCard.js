@@ -1,8 +1,8 @@
 import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-
-import { FaPlay, FaShare } from "react-icons/fa";
+import { TbDots } from "react-icons/tb";
+import { FaEllipsisH, FaPlay, FaShare } from "react-icons/fa";
 import Spinner from "./Spinner";
 
 const VideoCard = () => {
@@ -52,6 +52,9 @@ const VideoCard = () => {
 
   return (
     <div ref={about} className="w-full px-2">
+      <div className="flex flex-row-reverse px-2">
+        <TbDots className="text-gray-400 text-2xl" />
+      </div>
       <div className="w-full max-w-[800px] h-[300px] lg:h-[400px] m-auto bg-gray-200 relative rounded-lg overflow-hidden">
         <div className="absolute w-full h-full flex">
           <Spinner />
@@ -91,7 +94,7 @@ const VideoCard = () => {
         <video
           onClick={() => handleVideoPress()}
           poster="/poster.webp"
-          className="m-auto cursor-pointer w-full h-full object-cover relative"
+          className="m-auto cursor-pointer w-full h-full object-cover relative rounded-xl"
           playsInline
           loop
           muted
@@ -108,12 +111,15 @@ const VideoCard = () => {
         <p className="font-medium">
           Querétaro, una ciudad que tienes que conocer
         </p>
-        <button>
-          <div className="flex bg-gray-200 text-gray-500 rounded-lg px-2 py-1 mt-4">
-            <FaShare className="my-auto mr-2 text-sm" />
-            <p className="my-auto text-sm">Compartir</p>
-          </div>
-        </button>
+        <div className="flex justify-between mt-2">
+          <button className="my-auto  bg-gray-200  text-gray-500 rounded-lg px-2 py-1 ">
+            <div className="flex">
+              <FaShare className="my-auto mr-2 text-sm" />
+              <p className="my-auto text-sm">Compartir</p>
+            </div>
+          </button>
+          <p className="my-auto text-sm text-gray-400">Públicación sugerida</p>
+        </div>
       </div>
     </div>
   );
