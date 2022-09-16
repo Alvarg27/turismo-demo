@@ -17,8 +17,8 @@ const RecommendedCard = ({ show, recommendation }) => {
   };
 
   return (
-    <div className={`shadow-xl min-w-full relative px-4`}>
-      <div className="rounded-xl bg-gray-700 relative h-[400px] ">
+    <div className={`shadow-xl min-w-full relative px-8`}>
+      <div className="rounded-xl bg-gray-100 relative h-[400px] ">
         <div
           className={`absolute top-2 right-2 text-white bg-rose-400 h-[40px] w-[40px] flex rounded-full shadow-md transition duration-300 delay-300 z-[11] ${
             isLoaded

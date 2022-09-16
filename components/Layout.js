@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 const Layout = ({ children }) => {
   return (
-    <div className="h-[1000px]  bg-gray-800 relative">
+    <div className="h-[1000px]  bg-white relative">
       <div className="flex h-[50px] bg-indigo-700">
         <div className="m-auto text-white flex mt-[15px]">
           <FaPlane className="m-auto text-4xl mr-2" />

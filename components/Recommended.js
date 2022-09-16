@@ -8,7 +8,7 @@ import RecommendedCard from "./RecommendedCard";
 const recommendations = [
   {
     _id: "01",
-    title: "Festival Experimntal",
+    title: "Festival Experimental",
     image: experimental,
     color: "bg-blue-400",
   },
@@ -76,7 +76,7 @@ const Recommended = () => {
 
   return (
     <div className="flex flex-col w-full ">
-      <p className="font-medium text-white">Recomendado</p>
+      <p className="font-medium px-4">Recomendado</p>
       <div className="relative h-[400px] flex overflow-x-scroll my-4 no-scrollbar">
         {recommendations.map((r, i) => (
           <RecommendedCard key={r._id} recommendation={r} />
