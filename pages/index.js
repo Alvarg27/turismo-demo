@@ -10,9 +10,6 @@ export default function Home() {
     <>
       <div className="">
         <VideoCard />
-        <div className=" h-[50px] flex border-t-[1px]  border-b-[1px] mt-4">
-          <p className="m-auto text text-indigo-700">Ver más videos</p>
-        </div>
         <Nearby />
         <Categories />
         <Recommended />

@@ -2,7 +2,13 @@ import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { TbDots } from "react-icons/tb";
-import { FaEllipsisH, FaPlay, FaShare } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaChevronRight,
+  FaEllipsisH,
+  FaPlay,
+  FaShare,
+} from "react-icons/fa";
 import Spinner from "./Spinner";
 
 const VideoCard = () => {
@@ -55,42 +61,18 @@ const VideoCard = () => {
       <div className="flex flex-row-reverse px-2">
         <TbDots className="text-gray-400 text-2xl" />
       </div>
-      <div className="w-full max-w-[800px] h-[300px] lg:h-[400px] m-auto bg-gray-200 relative rounded-lg overflow-hidden">
-        <div className="absolute w-full h-full flex">
-          <Spinner />
+      <div className="w-full max-w-[800px] h-[300px] lg:h-[400px] m-auto bg-gray-200 relative rounded-xl">
+        <div className="absolute w-full h-full flex"></div>
+
+        <div
+          onClick={() => handleVideoPress()}
+          className={`absolute w-full h-full flex bg-black bg-opacity-30 z-30  transition duration-500 rounded-xl cursor-pointer ${
+            !playing ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <FaPlay className="m-auto text-6xl text-white opacity-50" />
         </div>
-        <Transition
-          show={!playing}
-          enter="transition-opacity duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity duration-300"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div
-            onClick={() => handleVideoPress()}
-            className="absolute w-full h-full flex bg-black bg-opacity-30 z-20"
-          >
-            <FaPlay className="m-auto text-6xl text-white opacity-50" />
-          </div>
-        </Transition>
-        <Transition
-          show={false && playing}
-          enter="transition-opacity duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity duration-300"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div
-            onClick={() => handleVideoPress()}
-            className="absolute w-full h-full flex bg-black bg-opacity-30"
-          >
-            <Spinner />
-          </div>
-        </Transition>
+
         <video
           onClick={() => handleVideoPress()}
           poster="/poster.webp"
@@ -102,6 +84,12 @@ const VideoCard = () => {
         >
           <source src="/turismo.mp4" />
         </video>
+      </div>
+      <div className=" h-[50px] flex border-t-[1px]  border-b-[1px] mt-2">
+        <div className="m-auto flex justify-between w-full px-4 cursor-pointer ">
+          <p className="text text-indigo-700 my-auto">Ver más videos</p>
+          <FaChevronRight className="my-auto" />
+        </div>
       </div>
       <div className="px-4">
         <div className="flex text-gray-500 mt-2 text-sm">
