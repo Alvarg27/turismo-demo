@@ -9,9 +9,10 @@ export default function Home() {
   return (
     <>
       <div className="">
+        <Categories />
         <VideoCard />
         <Nearby />
-        <Categories />
+
         <Recommended />
       </div>
     </>
