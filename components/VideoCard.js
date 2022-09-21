@@ -73,7 +73,6 @@ const VideoCard = ({ post }) => {
           className="m-auto cursor-pointer w-full h-full object-cover relative rounded-xl"
           playsInline
           loop
-          muted
           ref={kidsVideoRef}
         >
           <source src={post.video} />
