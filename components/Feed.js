@@ -43,7 +43,7 @@ const Feed = () => {
   return (
     <div>
       <d className="inline-flex bg-white py-2 px-4 rounded-full shadow-lg mb-6 mx-2">
-        <FaFire className="my-auto mr-2 text-red-300" />
+        <FaFire className="my-auto mr-2 text-red-300 text-xl" />
         <p className="my-auto">Videos recientes</p>
       </d>
       {inView ? (
