@@ -3,7 +3,7 @@ import FontAwesome from "./FontAwesome";
 
 const CategoryCard = ({ category }) => {
   return (
-    <div className="flex flex-col mx-4 w-[80px] ">
+    <div className="flex flex-col  w-[100px] ">
       <div
         className="w-[60px] h-[60px] flex rounded-lg mx-auto"
         style={{ background: category.background }}

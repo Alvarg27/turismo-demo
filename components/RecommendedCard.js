@@ -16,22 +16,27 @@ const RecommendedCard = ({ recommendation, height }) => {
   };
 
   return (
-    <div style={{ height: height }} className={`w-full relative p-2`}>
+    <div style={{ height: height }} className={`w-full relative p-1`}>
       <div className="w-full h-full relative">
         <div
-          className={`absolute bottom-0 bg-gradient-to-t w-full h-full from-indigo-600 z-10  transition-height duration-300 rounded-xl flex flex-col-reverse  ${
+          className={`absolute bottom-0 bg-gradient-to-t w-full  from-black z-10  transition-height duration-300 rounded-xl  opacity-60 ${
             isLoaded ? "h-full" : "h-0"
           }`}
+        ></div>
+        <div
+          className={`absolute w-full h-full  z-10  rounded-xl flex flex-col-reverse }`}
         >
           <div
             className={`w-full p-4 duration-500 transition-all delay-300  ${
               isLoaded ? "opacity-100" : "opacity-0"
             }`}
           >
-            <p className="text-white text-2xl ">{recommendation.title}</p>
-            <div className="flex text-white">
-              <FaLocationArrow className="my-auto mr-2" />
-              <p className="my-auto font-medium">3 km</p>
+            <p className="text-white text-xl ">{recommendation.title}</p>
+            <div className="inline-flex bg-white p-1 rounded-full text-sm mt-2">
+              <FaLocationArrow className="my-auto mr-2 text-indigo-400" />
+              <p className="my-auto font-medium text-gray-500">
+                {recommendation.distance} km
+              </p>
             </div>
           </div>
         </div>

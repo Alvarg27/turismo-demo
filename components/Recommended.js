@@ -47,7 +47,10 @@ const Recommended = () => {
 
   return (
     <div className="flex flex-col w-full ">
-      <p className="font-medium px-4">Recomendado</p>
+      <p className="px-4 mb-2 text-2xl w-1/2">
+        ¿Qué hacer en{" "}
+        <b className="text-blue-500 font-medium">#QuerétaroCiudad</b> ?
+      </p>
       <div className="flex">
         <div className="relative w-1/2">
           {arrayFirstHalf.map((r, i) => {

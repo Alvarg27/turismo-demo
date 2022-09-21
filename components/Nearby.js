@@ -12,6 +12,8 @@ const nearby = [
     image: mariposa,
     address: "Angela Peralta #7, Centro",
     icon: "FaUtensils",
+    color: "#fb923c",
+    background: "#ffedd5",
   },
   {
     _id: "02",
@@ -20,6 +22,8 @@ const nearby = [
     image: leyendas,
     address: "And. 5 de Mayo 39, Centro",
     icon: "FaStar",
+    color: "#60a5fa",
+    background: "#e0f2fe",
   },
   {
     _id: "03",
@@ -28,13 +32,15 @@ const nearby = [
     image: urraca,
     address: "C. 5 de Mayo 117, La Santa Cruz, La Cruz",
     icon: "FaHotel",
+    color: "#818cf8",
+    background: "#e0e7ff",
   },
 ];
 
 const Nearby = () => {
   return (
     <div className="my-8">
-      <p className="font-medium px-4 ">Cerca de tí</p>
+      <p className=" px-4 text-2xl">Cerca de tí</p>
       <div className="flex flex-col  overflow-scroll no-scrollbar">
         <div className="flex mx-auto my-4">
           {nearby.map((n) => (
