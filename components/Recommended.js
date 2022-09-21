@@ -47,7 +47,7 @@ const Recommended = () => {
 
   return (
     <div className="flex flex-col w-full ">
-      <p className="px-4 mb-2 text-2xl w-1/2">
+      <p className="px-4 mb-2 text-2xl w-[80%]">
         ¿Qué hacer en{" "}
         <b className="text-blue-500 font-medium">#QuerétaroCiudad</b> ?
       </p>
