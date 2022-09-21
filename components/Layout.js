@@ -7,9 +7,9 @@ const Layout = ({ children }) => {
   return (
     <div className="bg-white">
       <div className="sticky top-0 z-[40] mb-[75px]">
-        <div className="flex h-[50px] bg-blue-700">
-          <div className="m-auto text-white flex mt-[15px]">
-            <FaPlane className="m-auto text-4xl mr-2" />
+        <div className="flex h-[30px] bg-blue-700">
+          <div className="m-auto text-white flex mt-[0px]">
+            <FaPlane className="m-auto text-2xl mr-2" />
             <p className="my-auto text-xl">Turismo</p>
           </div>
         </div>
