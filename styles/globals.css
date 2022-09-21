@@ -12,6 +12,7 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
+
   input:focus,
   select:focus,
   textarea:focus,
