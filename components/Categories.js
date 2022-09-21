@@ -48,7 +48,7 @@ const categories = [
 
 const Categories = () => {
   return (
-    <div className="my-8 border-b-[1px] border-gray-100">
+    <div className="my-6 border-b-[1px] border-gray-100">
       <div className="flex flex-col  overflow-scroll no-scrollbar">
         <div className="flex mx-auto my-4">
           {categories.map((category) => (

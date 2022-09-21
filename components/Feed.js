@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaFire } from "react-icons/fa";
 import VideoCard from "./VideoCard";
 import VideoCardLoading from "./VideoCardLoading";
 
@@ -41,6 +42,10 @@ const Feed = () => {
 
   return (
     <div>
+      <d className="inline-flex bg-white py-2 px-4 rounded-full shadow-lg mb-6 mx-2">
+        <FaFire className="my-auto mr-2 text-red-300" />
+        <p className="my-auto">Videos recientes</p>
+      </d>
       {inView ? (
         posts.map((post) => {
           if (inView === post._id)
