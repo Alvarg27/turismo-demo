@@ -6,7 +6,6 @@ import FontAwesome from "./FontAwesome";
 const NearbyCard = ({ item }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const imageRef = useRef();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -31,7 +30,6 @@ const NearbyCard = ({ item }) => {
         </div>
       </div>
       <Image
-        ref={imageRef}
         layout="fill"
         objectFit="cover"
         className={` transition duration-1000 rounded-xl ${

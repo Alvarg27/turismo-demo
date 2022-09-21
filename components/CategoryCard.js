@@ -3,12 +3,18 @@ import FontAwesome from "./FontAwesome";
 
 const CategoryCard = ({ category }) => {
   return (
-    <div className="flex flex-col mx-4">
-      <FontAwesome
-        name={category.icon}
-        className="m-auto text-4xl text-indigo-700"
-      />
-      <p className="m-auto text-sm text-gray-500">{category.title}</p>
+    <div className="flex flex-col mx-4 w-[80px] ">
+      <div
+        className="w-[60px] h-[60px] flex rounded-lg mx-auto"
+        style={{ background: category.background }}
+      >
+        <FontAwesome
+          style={{ color: category.color }}
+          name={category.icon}
+          className="m-auto text-3xl"
+        />
+      </div>
+      <p className="m-auto text-sm text-gray-500 mt-2">{category.title}</p>
     </div>
   );
 };
